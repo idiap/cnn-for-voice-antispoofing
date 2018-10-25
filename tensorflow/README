@@ -1,0 +1,40 @@
+# Copyright (c) 2018 Queensland University of Technology, Idiap Research Institute (http://www.idiap.ch/)
+# Written by Ivan Himawan <i.himawan@qut.edu.au>,
+#
+# This file is part of Handbook of Biometric Anti-Spoofing 2.
+
+# Baseline system
+
+This is tensorflow code for training 3CNN+2FC model.
+
+# Setting the Python environment
+
+1. Download and installing conda.
+download url: https://repo.continuum.io/miniconda/
+
+bash Miniconda2-latest-Linux-x86_64.sh
+
+2. Create virtual environment for python using conda.
+./miniconda2/bin/conda create -n hb_book
+source activate hb_book
+pip install tensorflow-gpu==1.4.1
+
+# Feature extraction process
+
+This version of feature extraction process use Matlab scripts to compute spectrogram.
+```bash
+matlab -r "run_normallogpow"
+```
+# Information regarding model training
+
+Tensorflow is used to implement the deep architectures. Require tensorflow (>=1.4.0) with GPU support.
+``bash
+python cnn_128.py 0.01
+```
+
+# Scoring
+
+Require Matlab and bosaris toolkit: https://sites.google.com/site/bosaristoolkit/
+```bash
+./scoring1.sh
+```

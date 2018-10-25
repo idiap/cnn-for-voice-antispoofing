@@ -1,0 +1,18 @@
+#!/bin/bash
+# download and install miniconda
+wget 'https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh' -O Miniconda3-latest-Linux-x86_64.sh
+chmod u+x Miniconda3-latest-Linux-x86_64.sh
+./Miniconda3-latest-Linux-x86_64.sh
+
+# create a new environment
+
+minidconda3/bin/conda create --name pytorch --file env.txt  -c soumith
+
+# activate the environment
+
+source miniconda3/bin/activate pytorch
+
+# install additional packages
+
+pip install h5py 
+conda install -c anaconda scikit-learn

@@ -1,0 +1,38 @@
+# Copyright (c) 2018 Queensland University of Technology, Idiap Research Institute (http://www.idiap.ch/)
+# Written by Ivan Himawan <i.himawan@qut.edu.au>,
+#
+# This file is part of Handbook of Biometric Anti-Spoofing 2.
+
+This folder contains Matlab scripts to use AlexNet as a feature extractor and to perfom transfer learning. 
+
+# Software requirements
+
+1. Matlab 2017b, it requires Signal processing toolkit, Neural Network Toolbox Model for AlexNet Network support package.
+2. requires GPU support (only for transfer learning).
+3. Bosaris toolkit for computing EER. https://sites.google.com/site/bosaristoolkit/
+
+# Feature extraction
+
+1. Setup the ASVspoof 2017 database, by creating symbolic links
+ln -s /database/ASVspoof2017/train/wav ASVspoof2017_train
+ln -s /database/ASVspoof2017/dev/wav ASVspoof2017_dev
+ln -s /database/ASVspoof2017/eval/wav ASVspoof2017_eval
+
+the dir location is fixed in run_all_train.m, run_all_dev.m, and run_all_eval.m for training, development, and evaluation dir location, respectively.
+
+This will extract features for train, dev, and eval sets.
+In bash, using command line:
+```
+matlab -nodisplay -nodesktop -r "feat_extract"
+```
+
+# AlexNet (as a feature extractor), SVM
+```
+matlab -nodisplay -nodesktop -r "script_directSVM"
+```
+
+# AlexNet + transfer learning
+```
+matlab -nodisplay -nodesktop -r "script_transferLearning"
+```
+
